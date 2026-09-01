@@ -1,0 +1,99 @@
+# =========================================================
+# GameMaker
+# =========================================================
+
+# Build output.
+Build/
+Output/
+/temp/
+
+# Exported project archives. A .yyz is a zip of the WHOLE
+# project — committing one is the usual reason a GameMaker
+# repo balloons to hundreds of MB.
+*.yyz
+
+# IDE caches and debug dumps, all regenerated on open.
+cache/
+.gm_cache/
+*.gmcache
+*.yydebug
+*.log
+
+# Backups GameMaker writes next to your files when it saves.
+*.old
+*.bak
+*.backup
+
+# Per-machine resource ordering in the IDE's asset browser.
+# Regenerated on open, and a constant source of merge
+# conflicts, so it stays out of git.
+*.resource_order
+
+# Platform options the IDE re-derives from the defaults.
+options/*/inherited/
+
+# NOTE: do NOT ignore datafiles/, sprites/, sounds/, fonts/
+# or the .yy files beside them — those ARE the game, and
+# GameMaker cannot open the project without them.
+
+
+# =========================================================
+# Claude Code
+# =========================================================
+
+# Per-machine approvals, appended automatically every
+# session. .claude/settings.json (the shared config) and
+# CLAUDE.md are deliberately NOT ignored.
+.claude/settings.local.json
+
+
+# =========================================================
+# Editor
+# =========================================================
+
+.vscode/
+.idea/
+*.swp
+*~
+
+
+# =========================================================
+# macOS
+# =========================================================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+# =========================================================
+# Windows
+# =========================================================
+
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.stackdump
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk

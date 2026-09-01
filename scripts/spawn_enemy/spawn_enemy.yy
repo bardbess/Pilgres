@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"spawn_enemy",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"spawn_enemy",
+  "parent":{
+    "name":"Pilgres",
+    "path":"Pilgres.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
