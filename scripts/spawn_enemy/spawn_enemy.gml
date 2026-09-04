@@ -38,7 +38,7 @@ function spawn_enemy()
 
 
     var enemy_speed =
-        random_range(0.35, 0.65)
+        random_range(0.25, 0.45)
         + level * 0.025;
 
 
