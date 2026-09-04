@@ -26,6 +26,7 @@
     {"id":{"name":"Pixel","path":"rooms/Pixel/Pixel.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"spawn_enemy","path":"scripts/spawn_enemy/spawn_enemy.yy",},},
+    {"id":{"name":"spr_enemy_walkdown","path":"sprites/spr_enemy_walkdown/spr_enemy_walkdown.yy",},},
     {"id":{"name":"spr_enemy_walkleft","path":"sprites/spr_enemy_walkleft/spr_enemy_walkleft.yy",},},
     {"id":{"name":"spr_enemy_walkright","path":"sprites/spr_enemy_walkright/spr_enemy_walkright.yy",},},
     {"id":{"name":"spr_pilgrim_idle","path":"sprites/spr_pilgrim_idle/spr_pilgrim_idle.yy",},},

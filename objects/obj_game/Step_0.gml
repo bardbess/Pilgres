@@ -75,9 +75,9 @@ for (var i = array_length(enemies) - 1; i >= 0; i--)
             : spr_enemy_walkleft;
     }
 
-    // Advance the walk cycle by hand — 10 fps, matching the
+    // Advance the walk cycle by hand — 8 fps, matching the
     // playback speed set on both sprites, in a 60 fps room.
-    e.frame += 10 / 60;
+    e.frame += 8 / 60;
 
     var frame_count = sprite_get_number(e.sprite);
 
