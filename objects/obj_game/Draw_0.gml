@@ -272,64 +272,28 @@ for (var enemy_index = 0;
     // BODY
     // -----------------------------------------------------
 
-    draw_set_color(
-        make_color_rgb(50, 45, 42)
-    );
+    // The two walk sprites are different sizes (16x34 and
+    // 26x55), so scale both to one height instead of drawing
+    // them raw — otherwise the enemy changes size every time
+    // it turns around.
+    var body_height = enemy.radius * 3.2;
 
-    draw_circle(
-        enemy.x,
-        enemy.y + 5,
-        enemy.radius,
-        false
-    );
+    var body_scale =
+        body_height / sprite_get_height(enemy.sprite);
 
-
-    // -----------------------------------------------------
-    // HOOD
-    // -----------------------------------------------------
-
-    draw_set_color(
-        make_color_rgb(75, 72, 68)
-    );
-
-    draw_circle(
-        enemy.x,
-        enemy.y - 7,
-        enemy.radius * 0.65,
-        false
-    );
-
-
-    // -----------------------------------------------------
-    // FACE
-    // -----------------------------------------------------
-
-    draw_set_color(
-        make_color_rgb(145, 105, 75)
-    );
-
-    draw_circle(
-        enemy.x,
-        enemy.y - 5,
-        enemy.radius * 0.30,
-        false
-    );
-
-
-    // -----------------------------------------------------
-    // WEAPON
-    // -----------------------------------------------------
-
-    draw_set_color(
-        make_color_rgb(110, 82, 52)
-    );
-
-    draw_line_width(
-        enemy.x + 8,
-        enemy.y - 4,
-        enemy.x + 17,
-        enemy.y + 14,
-        3
+    // Both sprites have their origin at the top-left corner,
+    // so nothing centres itself. Place the feet just inside
+    // the shadow ellipse and work back up from there.
+    draw_sprite_ext(
+        enemy.sprite,
+        enemy.frame,
+        enemy.x - (sprite_get_width(enemy.sprite) * body_scale) / 2,
+        enemy.y + 12 - body_height,
+        body_scale,
+        body_scale,
+        0,
+        c_white,
+        1
     );
 
 

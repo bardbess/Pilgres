@@ -65,6 +65,27 @@ for (var i = array_length(enemies) - 1; i >= 0; i--)
         e.y += (dy / dist) * e.speed;
     }
 
+    // Face the way we are moving. The deadzone matters: an enemy
+    // walking almost straight up or down has dx hovering around 0,
+    // and without it the sprite flips every single frame.
+    if (abs(dx) > 0.1)
+    {
+        e.sprite = (dx > 0)
+            ? spr_enemy_walkright
+            : spr_enemy_walkleft;
+    }
+
+    // Advance the walk cycle by hand — 10 fps, matching the
+    // playback speed set on both sprites, in a 60 fps room.
+    e.frame += 10 / 60;
+
+    var frame_count = sprite_get_number(e.sprite);
+
+    if (e.frame >= frame_count)
+    {
+        e.frame -= frame_count;
+    }
+
     // Enemy reaches player.
     var new_dist = point_distance(
         e.x,

@@ -41,8 +41,6 @@ function spawn_enemy()
         random_range(0.25, 0.45)
         + level * 0.025;
 
-    var guy = sprite_add("spr_pilgrim_idle", 1, true, false, ex, ey);
-	
     var enemy = {
         uid: enemy_uid_next++,
 
@@ -50,8 +48,14 @@ function spawn_enemy()
         y: ey,
 
         radius: random_range(12, 17),
-		
-		sprite: guy,
+
+        // Which way the enemy is walking. Picked from its
+        // movement every step; this is just a starting value.
+        sprite: spr_enemy_walkright,
+
+        // Structs are not instances, so there is no automatic
+        // image_index. The step event advances this by hand.
+        frame: irandom(sprite_get_number(spr_enemy_walkright) - 1),
 
         speed: enemy_speed,
 
