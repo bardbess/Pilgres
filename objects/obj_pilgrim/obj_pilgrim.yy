@@ -1,9 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_soldier",
-  "eventList":[],
+  "%Name":"obj_pilgrim",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":true,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_soldier",
+  "name":"obj_pilgrim",
   "overriddenProperties":[],
   "parent":{
     "name":"Pilgres",
@@ -28,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_XXX",
-    "path":"sprites/spr_XXX/spr_XXX.yy",
+    "name":"spr_pilgrim_idle",
+    "path":"sprites/spr_pilgrim_idle/spr_pilgrim_idle.yy",
   },
   "spriteMaskId":null,
   "visible":true,

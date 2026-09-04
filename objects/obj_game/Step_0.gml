@@ -47,6 +47,7 @@ if (game_time > 0)
 for (var i = array_length(enemies) - 1; i >= 0; i--)
 {
     var e = enemies[i];
+	
 
     var dx = player_x - e.x;
     var dy = player_y - e.y;

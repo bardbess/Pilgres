@@ -41,7 +41,8 @@ function spawn_enemy()
         random_range(0.25, 0.45)
         + level * 0.025;
 
-
+    var guy = sprite_add("spr_pilgrim_idle", 1, true, false, ex, ey);
+	
     var enemy = {
         uid: enemy_uid_next++,
 
@@ -49,6 +50,8 @@ function spawn_enemy()
         y: ey,
 
         radius: random_range(12, 17),
+		
+		sprite: guy,
 
         speed: enemy_speed,
 
