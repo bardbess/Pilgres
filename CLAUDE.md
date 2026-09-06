@@ -1,16 +1,19 @@
 # Pilgres
 
 GameMaker typing game (IDE 2026.0.0.16, 60fps, room 1366x768) — *The Pilgrim's Progress*,
-City of Destruction. Enemies carry words; typing a word kills the targeted one. 60s timer,
-3 health, XP/levels.
+City of Destruction. The player types a passage straight through: each word finished damages
+every enemy within `word_blast_radius` of the pilgrim, and finishing the whole passage deals
+heavier damage and knocks that ring back. Enemies arrive as **waves** — a fixed
+group per wave, the next only after the board is empty, and clearing one puts
+seconds back on the 60s run clock. 3 health, XP/levels.
 
 All state and logic live on a **single object, `obj_game`**. There are no enemy instances —
 enemies are plain structs in an `enemies` array, drawn by hand each frame.
 
 | File | Holds |
 |---|---|
-| `objects/obj_game/Create_0.gml` | all state; word + phrase lists |
-| `objects/obj_game/Step_0.gml` | timer, spawning, enemy movement, targeting, typing input |
+| `objects/obj_game/Create_0.gml` | all state; the `phrases` list; `word_damage` |
+| `objects/obj_game/Step_0.gml` | timer, spawning, enemy movement, typing input, word/passage damage |
 | `objects/obj_game/Draw_0.gml` | world: city, rubble, fire, enemies, player |
 | `objects/obj_game/Draw_64.gml` | Draw GUI: HUD, typing panel, game over |
 | `scripts/spawn_enemy/spawn_enemy.gml` | pushes one enemy struct |

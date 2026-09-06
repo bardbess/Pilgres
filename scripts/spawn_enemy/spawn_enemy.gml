@@ -33,8 +33,9 @@ function spawn_enemy()
     }
 
 
-    var enemy_word =
-        words[irandom(array_length(words) - 1)];
+    // Tougher as the levels climb, so one finished word stops
+    // being an instant kill.
+    var enemy_hp = 2 + floor(level / 3);
 
 
     var enemy_speed =
@@ -59,9 +60,16 @@ function spawn_enemy()
 
         speed: enemy_speed,
 
-        word: enemy_word,
+        hp: enemy_hp,
+        max_hp: enemy_hp,
 
-        hp: 1,
+        // Knockback velocity, in pixels per step. Added on top
+        // of the walk and decayed towards zero every step.
+        kx: 0,
+        ky: 0,
+
+        // Frames of white hit-flash left.
+        flash: 0,
 
         points: 10 + level * 2,
 

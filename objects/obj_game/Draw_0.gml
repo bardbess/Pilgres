@@ -217,6 +217,32 @@ for (var fire_index = 0;
 
 
 // =========================================================
+// SHOCKWAVES
+//
+// The ring a finished word or a finished passage leaves on the
+// ground. Under the enemies, so it reads as coming off the
+// pilgrim rather than sitting on top of the crowd.
+// =========================================================
+
+for (var wave_index = 0;
+     wave_index < array_length(shockwaves);
+     wave_index++)
+{
+    var ring = shockwaves[wave_index];
+
+    draw_set_alpha(ring.alpha);
+
+    draw_set_color(ring.color);
+
+    draw_circle(ring.x, ring.y, ring.radius, true);
+
+    draw_circle(ring.x, ring.y, ring.radius - 3, true);
+
+    draw_set_alpha(1);
+}
+
+
+// =========================================================
 // ENEMIES
 // =========================================================
 
@@ -225,29 +251,6 @@ for (var enemy_index = 0;
      enemy_index++)
 {
     var enemy = enemies[enemy_index];
-
-    var is_target =
-        (enemy.uid == target_uid);
-
-
-    // -----------------------------------------------------
-    // TARGET RING
-    // -----------------------------------------------------
-
-    if (is_target)
-    {
-        draw_set_color(
-            make_color_rgb(190, 150, 50)
-        );
-
-        draw_circle(
-            enemy.x,
-            enemy.y,
-            enemy.radius + 7,
-            true
-        );
-    }
-
 
     // -----------------------------------------------------
     // SHADOW
@@ -292,7 +295,13 @@ for (var enemy_index = 0;
         body_scale,
         body_scale,
         0,
-        c_white,
+
+        // Washes out white for a few frames when a word lands,
+        // so a hit that does not kill still reads as a hit.
+        ((enemy.flash > 0)
+            ? make_color_rgb(255, 210, 200)
+            : c_white),
+
         1
     );
 
@@ -311,61 +320,24 @@ for (var enemy_index = 0;
         false
     );
 
+    // Fills back from the left as the enemy is worn down.
+    var hp_fraction = clamp(enemy.hp / enemy.max_hp, 0, 1);
+
     draw_set_color(
-        make_color_rgb(170, 35, 30)
+        (hp_fraction > 0.5)
+            ? make_color_rgb(170, 35, 30)
+            : make_color_rgb(210, 140, 40)
     );
 
     draw_rectangle(
         enemy.x - 17,
         enemy.y - 27,
-        enemy.x + 17,
+        enemy.x - 17 + 34 * hp_fraction,
         enemy.y - 24,
         false
     );
 
 
-    // -----------------------------------------------------
-    // WORD
-    //
-    // Every enemy shows its word, so the player can pick
-    // one. The target also shows how far along it is.
-    // -----------------------------------------------------
-
-    var word_width = string_width(enemy.word);
-
-    var word_x = enemy.x - word_width * 0.5;
-    var word_y = enemy.y - 48;
-
-    if (is_target)
-    {
-        var done_part =
-            string_copy(enemy.word, 1, typing_index);
-
-        var left_part =
-            string_copy(
-                enemy.word,
-                typing_index + 1,
-                string_length(enemy.word)
-            );
-
-        draw_set_color(make_color_rgb(120, 210, 100));
-
-        draw_text(word_x, word_y, done_part);
-
-        draw_set_color(c_white);
-
-        draw_text(
-            word_x + string_width(done_part),
-            word_y,
-            left_part
-        );
-    }
-    else
-    {
-        draw_set_color(make_color_rgb(200, 195, 180));
-
-        draw_text(word_x, word_y, enemy.word);
-    }
 }
 
 
@@ -406,15 +378,21 @@ var player_height = player_radius * 3.2;
 var player_scale =
     player_height / sprite_get_height(player_sprite);
 
+var player_width =
+    sprite_get_width(player_sprite) * player_scale;
+
 // The sprite's origin is its top-left corner, so nothing
 // centres itself. Put the feet in the shadow ellipse and
-// work back up from there.
+// work back up from there. Facing left flips the x scale, and
+// the sprite then grows leftward from the draw position — so
+// the half-width offset has to flip with it, or he jumps a
+// body width sideways every time he turns.
 draw_sprite_ext(
     player_sprite,
     player_frame,
-    player_x - (sprite_get_width(player_sprite) * player_scale) / 2,
+    player_x - (player_width / 2) * player_facing,
     player_y + 18 - player_height,
-    player_scale,
+    player_scale * player_facing,
     player_scale,
     0,
     c_white,
