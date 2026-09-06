@@ -81,6 +81,12 @@ player_y = game_height * 0.48;
 
 player_radius = 18;
 
+// Idle animation is advanced by hand in the Step, the same way
+// the enemy walk cycles are.
+player_sprite = spr_pilgrim_idle;
+
+player_frame = 0;
+
 // ---------------------------------------------------------
 // ENEMIES
 // ---------------------------------------------------------

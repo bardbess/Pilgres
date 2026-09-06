@@ -9,6 +9,23 @@ if (game_time > 0)
 
 
 // ---------------------------------------------------------
+// PLAYER IDLE ANIMATION
+//
+// Advanced by hand at 8 fps, matching the playback speed set
+// on the sprite, in a 60 fps room.
+// ---------------------------------------------------------
+
+player_frame += 8 / 60;
+
+var player_frame_count = sprite_get_number(player_sprite);
+
+if (player_frame >= player_frame_count)
+{
+    player_frame -= player_frame_count;
+}
+
+
+// ---------------------------------------------------------
 // SPAWN ENEMIES
 // ---------------------------------------------------------
 

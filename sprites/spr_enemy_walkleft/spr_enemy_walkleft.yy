@@ -2,9 +2,9 @@
   "$GMSprite":"v2",
   "%Name":"spr_enemy_walkleft",
   "bboxMode":0,
-  "bbox_bottom":33,
+  "bbox_bottom":54,
   "bbox_left":0,
-  "bbox_right":15,
+  "bbox_right":25,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -23,7 +23,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":34,
+  "height":55,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"0d61528d-c5a5-47b0-8b4e-f83faaa4b92a","blendMode":0,"displayName":"default","isLocked":false,"name":"0d61528d-c5a5-47b0-8b4e-f83faaa4b92a","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -133,5 +133,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":16,
+  "width":26,
 }

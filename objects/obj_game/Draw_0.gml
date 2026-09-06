@@ -394,73 +394,31 @@ draw_set_alpha(1);
 
 
 // ---------------------------------------------------------
-// CLOAK
+// BODY
+//
+// Scaled to a fixed height off player_radius, the same way
+// the enemies are, so the sprite's own pixel size doesn't
+// decide how big the pilgrim looks.
 // ---------------------------------------------------------
 
-draw_set_color(
-    make_color_rgb(65, 70, 58)
-);
+var player_height = player_radius * 3.2;
 
-draw_triangle(
-    player_x,
-    player_y - 18,
+var player_scale =
+    player_height / sprite_get_height(player_sprite);
 
-    player_x - 18,
-    player_y + 18,
-
-    player_x + 18,
-    player_y + 18,
-
-    false
-);
-
-
-// ---------------------------------------------------------
-// HEAD
-// ---------------------------------------------------------
-
-draw_set_color(
-    make_color_rgb(145, 105, 75)
-);
-
-draw_circle(
-    player_x,
-    player_y - 18,
-    9,
-    false
-);
-
-
-// ---------------------------------------------------------
-// HOOD
-// ---------------------------------------------------------
-
-draw_set_color(
-    make_color_rgb(42, 43, 38)
-);
-
-draw_circle(
-    player_x,
-    player_y - 20,
-    12,
-    false
-);
-
-
-// ---------------------------------------------------------
-// STAFF
-// ---------------------------------------------------------
-
-draw_set_color(
-    make_color_rgb(115, 79, 44)
-);
-
-draw_line_width(
-    player_x + 14,
-    player_y - 32,
-    player_x + 20,
-    player_y + 24,
-    4
+// The sprite's origin is its top-left corner, so nothing
+// centres itself. Put the feet in the shadow ellipse and
+// work back up from there.
+draw_sprite_ext(
+    player_sprite,
+    player_frame,
+    player_x - (sprite_get_width(player_sprite) * player_scale) / 2,
+    player_y + 18 - player_height,
+    player_scale,
+    player_scale,
+    0,
+    c_white,
+    1
 );
 
 
