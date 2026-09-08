@@ -200,7 +200,9 @@ enemy_uid_next = 0;
 // ---------------------------------------------------------
 
 // 0 until start_wave() is called below; the first real wave is 1.
+// Wave_limit is set to the max number of waves for this level
 wave = 0;
+wave_limit = 5
 
 // How many enemies this wave sends in total, and how many of
 // them have been spawned so far.

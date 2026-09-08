@@ -89,8 +89,7 @@ if (player_frame >= player_frame_count)
 //
 // One encounter at a time: the wave feeds its quota in a batch
 // at a time, then nothing more arrives until the board is empty.
-// Clearing it buys seconds back off the run clock and the next,
-// bigger wave walks in after a short breather.
+// The next bigger wave walks in after a short breather.
 //
 // A wave is cleared when the board is empty and the quota is
 // spent — checked here and nowhere else. Enemies die in two
@@ -157,6 +156,11 @@ if (game_time > 0)
                 wave_state = "breather";
 
                 wave_break_timer = wave_break;
+				
+				if (wave >= wave_limit)
+				{
+					score += 2000
+				}
             }
 
             break;
