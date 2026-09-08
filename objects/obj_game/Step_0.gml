@@ -1,10 +1,12 @@
 // ---------------------------------------------------------
 // TIME
+//
+// Time increase as seconds pass
 // ---------------------------------------------------------
 
 if (game_time > 0)
 {
-    game_time = max(0, game_time - (1 / room_speed));
+    game_time = max(0, game_time + (1 / room_speed));
 }
 
 
@@ -146,7 +148,7 @@ if (game_time > 0)
 
             if (array_length(enemies) == 0)
             {
-                game_time += wave_time_bonus;
+                // game_time += wave_time_bonus;
 
                 score += wave * 25;
 

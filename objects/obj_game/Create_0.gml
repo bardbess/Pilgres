@@ -19,7 +19,7 @@ level = 1;
 xp = 0;
 xp_next = 10;
 
-game_time = 60;
+game_time = 1;
 spawn_timer = 0;
 
 // ---------------------------------------------------------
@@ -223,7 +223,7 @@ wave_banner_max = 2 * room_speed;
 wave_banner = 0;
 
 // Seconds put back on the clock for clearing a wave.
-wave_time_bonus = 8;
+//wave_time_bonus = 8;
 
 // How many waves this run has finished — the score line on the
 // game over screen. Counted separately from `wave`, which has
