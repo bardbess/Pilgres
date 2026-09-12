@@ -19,6 +19,7 @@
   },
   "name":"Pilgres",
   "resources":[
+    {"id":{"name":"obj_cobblestone_background","path":"objects/obj_cobblestone_background/obj_cobblestone_background.yy",},},
     {"id":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},},
     {"id":{"name":"obj_pilgrim","path":"objects/obj_pilgrim/obj_pilgrim.yy",},},
     {"id":{"name":"obj_pixel_game","path":"objects/obj_pixel_game/obj_pixel_game.yy",},},
@@ -26,6 +27,8 @@
     {"id":{"name":"Pixel","path":"rooms/Pixel/Pixel.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"spawn_enemy","path":"scripts/spawn_enemy/spawn_enemy.yy",},},
+    {"id":{"name":"spr_cobblestone_tileset","path":"sprites/spr_cobblestone_tileset/spr_cobblestone_tileset.yy",},},
+    {"id":{"name":"spr_cobblestone1","path":"sprites/spr_cobblestone1/spr_cobblestone1.yy",},},
     {"id":{"name":"spr_enemy_walkdown","path":"sprites/spr_enemy_walkdown/spr_enemy_walkdown.yy",},},
     {"id":{"name":"spr_enemy_walkleft","path":"sprites/spr_enemy_walkleft/spr_enemy_walkleft.yy",},},
     {"id":{"name":"spr_enemy_walkright","path":"sprites/spr_enemy_walkright/spr_enemy_walkright.yy",},},
